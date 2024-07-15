@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AttendeesApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AttendeesApp"
+    xmlns:pages="clr-namespace:AttendeesApp.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="AttendeesApp">
+
+    <FlyoutItem Title="SelectTournament" Route="selectTournament">
+        <ShellContent ContentTemplate="{DataTemplate pages:SelectTournamentPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="BarcodeCapturePage" Route="barcodeCapturePage">
+        <ShellContent ContentTemplate="{DataTemplate pages:BarcodeCapturePage}"/>
+    </FlyoutItem>
+
+</Shell>

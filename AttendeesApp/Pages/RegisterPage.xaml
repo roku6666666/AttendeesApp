@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:AttendeesApp.Models"
+             xmlns:pages="clr-namespace:AttendeesApp.Pages"
+             x:Class="AttendeesApp.Pages.RegisterPage"
+             Shell.NavBarIsVisible="False"
+             x:DataType="pages:RegisterViewModel"
+             Title="BarcodeCapturePage">
+    <ContentPage.BindingContext>
+        <pages:RegisterViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto, *, 66" Margin="20,20,20,0">
+        <VerticalStackLayout VerticalOptions="Center" Spacing="4">
+            <Label Text="Register" Style="{StaticResource LargeTitle}"/>
+            <BoxView Style="{StaticResource HRule}"/>
+
+            <VerticalStackLayout 
+                Spacing="25"
+                Padding="30,0"
+                Margin="0, 200, 0, 0">
+                <Label
+                    Text="{Binding AttendeeType}"
+                    FontSize="16"
+                    Padding="30,0"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center" />
+                <Label
+                    Text="{Binding GameTag}"
+                    FontSize="32"
+                    HorizontalOptions="Center" />
+                <Label
+                    Text="{Binding Name}"
+                    FontSize="32"
+                    HorizontalOptions="Center" />
+                <Label
+                    Text="{Binding Result}"
+                    FontSize="18"
+                    HorizontalOptions="Center" />
+
+                <Button Text="Done" HorizontalOptions="Fill" IsEnabled="{Binding DoneEnable}" Command="{Binding DoneCommand}"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

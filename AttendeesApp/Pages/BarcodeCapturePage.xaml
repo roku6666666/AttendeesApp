@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:AttendeesApp.Models"
+             xmlns:pages="clr-namespace:AttendeesApp.Pages"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="AttendeesApp.Pages.BarcodeCapturePage"
+             Shell.NavBarIsVisible="False"
+             x:DataType="pages:BarcodeCaptureViewModel"
+             Title="BarcodeCapturePage">
+    <ContentPage.BindingContext>
+        <pages:BarcodeCaptureViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto, *, 66" Margin="20,20,20,0">
+        <VerticalStackLayout VerticalOptions="Start" Spacing="4">
+            <Label Text="{Binding TournamentData.Name}" x:Name="tournamentName" Style="{StaticResource LargeTitle}"/>
+            <BoxView Style="{StaticResource HRule}"/>
+        </VerticalStackLayout>
+
+        <zxing:CameraBarcodeReaderView
+            Grid.Row="1"
+			x:Name="barcodeView"
+            BarcodesDetected="OnBarcodesDetected"/>
+    </Grid>
+</ContentPage>
